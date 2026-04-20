@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    font-family: Times New Roman, sans-serif;
+    background: #e6f4e6 url("https://i.pinimg.com/736x/f1/00/e0/f100e08b42b89f297183080d5891443f.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #0b4d0b;
+    font-size: 2.05rem;
+}
+
+body.howtogolf {
+    background: #e6f4e6 url("https://pga.com/_img/Phil-t1.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+body.howtoact {
+    background: #e6f4e6 url("https://www.liveabout.com/thmb/zjN1BWNXAGQTDjPl5_H7pHSS6pc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/john-daly-mullet-57a0e16d5f9b589aa9e9894c.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+    background-color: rgba(230, 244, 230, 0.8);
+    border-radius: 1rem;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+
+    background-color: #e6f4e6; /* full page green */
+
+    color: #0b4d0b;
+}
+.container {
+    min-height: 100vh;
+    max-width: 900px;   /* limits width */
+    margin: 0 auto;     /* THIS centers it horizontally */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 2rem;
+    text-align: center;
+    background-color: rgba(230, 244, 230, 0.8);
+    border-radius: 1rem;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+body.howtogolf .container,
+body.howtoact .container {
+    max-width: 900px;
+    background-color: rgba(230, 244, 230, 0.88);
+}
+
+.content-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.content-row .text-block {
+    flex: 1 1 420px;
+    min-width: 280px;
+}
+
+.content-row .video-block {
+    flex: 0 1 560px;
+    max-width: 560px;
+}
+
+.video-block iframe {
+    width: 100%;
+    height: 315px;
+    border: none;
+    border-radius: 0.6rem;
+}
+
+.container ol,
+.container ul {
+    text-align: left;
+    margin-left: 1.5rem;
+}
+
+h1 {
+    margin: 0 0 1.5rem;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.container p,
+.container ol,
+.container ul,
+.container li,
+.btn {
+    font-size: 1.12rem;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #cce8cc;
+    color: #0b4d0b;
+    text-decoration: none;
+    padding: 0.9rem 1.5rem;
+    border: 1px solid #0b4d0b;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #b6deb6;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Golfle (Golf Wordle)</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #e6f4e6;
+    color: #0b4d0b;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+#board {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 5px;
+    width: 260px;
+    margin: 20px auto;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+}
+
+.tile {
+    border: 2px solid #0b4d0b;
+    height: 50px;
+    line-height: 50px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.correct {
+    background-color: #6aaa64;
+    color: white;
+}
+
+.present {
+    background-color: #c9b458;
+    color: white;
+}
+
+.absent {
+    background-color: #787c7e;
+    color: white;
+}
+
+input {
+    padding: 10px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+button {
+    padding: 10px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+    <a href="golfhomepage.html" style="display:inline-block;margin:1rem 0;padding:0.75rem 1rem;background:#0b4d0b;color:#fff;text-decoration:none;border-radius:0.5rem;">Back to Golf Homepage</a>
+<h1>⛳ Golfle</h1>
+<p>Guess the 5-letter golf word!</p>
+
+<div id="board"></div>
+
+<input id="guessInput" maxlength="5" placeholder="Enter guess">
+<br>
+<button onclick="submitGuess()">Guess</button>
+
+<p id="message"></p>
+
+<script>
+const words = ["DRIVE", "GREEN", "IRONS", "PUTTS", "BOGEY", "EAGLE", "ROUGH", "PITCH", "CLUBS", "WEDGE", "DIVOT", "SWING", "FLUSH", "SLICE", "STICK"];
+const answer = words[Math.floor(Math.random() * words.length)];
+
+let currentRow = 0;
+
+const board = document.getElementById("board");
+
+// Create board
+for (let i = 0; i < 6; i++) {
+    let row = document.createElement("div");
+    row.className = "row";
+
+    for (let j = 0; j < 5; j++) {
+        let tile = document.createElement("div");
+        tile.className = "tile";
+        row.appendChild(tile);
+    }
+
+    board.appendChild(row);
+}
+
+function submitGuess() {
+    const input = document.getElementById("guessInput");
+    const guess = input.value.toUpperCase();
+
+    if (guess.length !== 5) {
+        alert("Enter a 5-letter word!");
+        return;
+    }
+
+    const row = board.children[currentRow].children;
+
+    for (let i = 0; i < 5; i++) {
+        row[i].textContent = guess[i];
+
+        if (guess[i] === answer[i]) {
+            row[i].classList.add("correct");
+        } else if (answer.includes(guess[i])) {
+            row[i].classList.add("present");
+        } else {
+            row[i].classList.add("absent");
+        }
+    }
+
+    if (guess === answer) {
+        document.getElementById("message").textContent = "🏆 You got it!";
+        return;
+    }
+
+    currentRow++;
+
+    if (currentRow === 6) {
+        document.getElementById("message").textContent = "❌ The word was " + answer;
+    }
+
+    input.value = "";
+}
+</script>
+
+</body>
+</html>
